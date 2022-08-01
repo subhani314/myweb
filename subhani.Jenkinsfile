@@ -46,6 +46,17 @@ pipeline {
               
                 script {
                     const app = docker.build("subhani314/'helloworld:${env.BUILD
+                    FROM node:14
+
+                    WORKDIR/usr/src/app
+
+                    COPY package*.json app.js./
+
+                    RUN npm install
+
+                    EXPOSE 3000
+
+                    CMD["node",app.js"]
                 }
             }
        }  
@@ -55,7 +66,7 @@ pipeline {
                   withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALS', variable: 'DOCKER_HUB_CREDENTIALS')]) {
                       sh "docker login -u deepikac2021 -p ${DOCKER_HUB_CREDENTIALS}"
              }
-            sh 'docker push deepikac2021/spring-boot-mongo'
+            sh 'docker push subhani314/spring-boot-mongo'
         }
       }
 
