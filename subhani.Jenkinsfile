@@ -45,7 +45,7 @@ pipeline {
             steps {
               
                 script {
-                    const app = docker.build("subhani314/'helloworld:${env.BUILD
+                    app = docker.build("subhani314/'helloworld:${env.BUILD
                     FROM node:14
 
                     WORKDIR/usr/src/app
